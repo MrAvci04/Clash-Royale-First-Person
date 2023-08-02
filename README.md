@@ -19,4 +19,4 @@ Week 5:
 
 Add to pervious updates:
 
-updating the battle plane
+updating the battle plane.
