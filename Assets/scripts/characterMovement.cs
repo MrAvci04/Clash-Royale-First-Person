@@ -20,4 +20,6 @@ public class characterMovement : MonoBehaviour
 
         Controller.Move(new Vector3(vertical, 0,-horizontal) * Time.deltaTime*10);
     }
+
+  
 }
