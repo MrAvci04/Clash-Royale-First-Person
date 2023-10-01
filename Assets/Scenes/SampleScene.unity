@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 194337}
-  mySword: {fileID: 0}
+  mySword: {fileID: 389820166}
 --- !u!1 &92433910
 GameObject:
   m_ObjectHideFlags: 0
