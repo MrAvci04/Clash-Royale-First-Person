@@ -21,5 +21,7 @@ public class characterMovement : MonoBehaviour
         Controller.Move(new Vector3(vertical, 0,-horizontal) * Time.deltaTime*10);
     }
 
+    //  I have changed this script , look at BPlayer and RPlayer (or player 1 nad player 2)
+    // The Movement code in the update() method
   
 }
