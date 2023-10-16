@@ -14,14 +14,14 @@ public class spawning : MonoBehaviour
     int cnt = 0;
     void Start()
     {
-        InvokeRepeating("spawnC", 0f, 3f);
-        InvokeRepeating("spawnH", 0f, 5f);
-        InvokeRepeating("stopSpawn",0f,10f);
+        InvokeRepeating("spawnC", 0f, 2f);
+        InvokeRepeating("spawnH", 0f, 3f);
+        InvokeRepeating("stopSpawn",0f,12f);
     }
     private void stopSpawn()
     {
         cnt++;
-        if (cnt == 5) 
+        if (cnt == 7) 
         {
             CancelInvoke("spawnC");
             CancelInvoke("spawnH");

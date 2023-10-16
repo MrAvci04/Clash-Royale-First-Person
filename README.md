@@ -148,11 +148,28 @@ Week 11 :
 	- hide the lines after spawning all the coins.
 	- adding sword , code it. (show , hide , hit and rotate ).
 	- use tags.
+	- Sword Damage.
+	- adding fireball gun.
+	- shoot bullets , and explostion on colliding.
+	- bullet damage.
+
+________________________________________________________________________________________________
+
+Week 12 :
+	
+	- Fix explosion position.
+	- Add PayCoin() function for the players , and updating the shooting function so if you don't have enough coins you cant shoot.
+	- Lose Coin After Shoot.
+	- fix damage bug in the shooting function (when bullet touches the enemie's bullet).
+	- switch weapons (click : 1,2 ,q or 7,8,u).
+ 	- adding cannons
+	- shooting with cannon
+	- add cannons to switchable weapons (click 3 or 9)
+________________________________________________________________________________________________
 
 Next Missions :
-	- add wizard chracter (fireball).
-	- Spawning Objects in Specific Position (position of the capsule , for tower cards) .
 	- adding health feature for the casstle , and it increases with the time (like real clash royal) .
 	- buying tower from player's coins to protect his casstle.
 	- choose cards and switch between them.
 	- search for more ideas.
+	- sword : animate instead of rotate

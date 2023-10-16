@@ -15,37 +15,53 @@ public class RPlayer : MonoBehaviour
 
     // static int cardsNum = 0;
     static List<string> myCards = new List<string>();
+
     public static int health = 100;
     static int coins = 0;
+
     public GameObject mySword;
+    public GameObject myGun;
+    public GameObject myCan;
+
     // Update is called once per frame
     public static int getCoin()
     {
         return coins;
     }
+    public static bool PayCoin(int am)
+    {
+        if (coins < am)
+            return false;
+        coins -= am;
+        return true;
+    }
+
     void Update()
     {
         if (health <= 0)
             Destroy(this.gameObject);
 
         if (Input.GetKey(KeyCode.K))
-            transform.position =  (transform.position + new Vector3(0.018F, 0, 0));
+            transform.position =  (transform.position + new Vector3(0.018F, 0, 0) );
 
         if (Input.GetKey(KeyCode.I))
-            transform.position = (transform.position + new Vector3(-0.018F, 0, 0));
+            transform.position = (transform.position + new Vector3(-0.018F, 0, 0) );
 
         if (Input.GetKey(KeyCode.L))
-            transform.position = (transform.position + new Vector3(0,0, 0.018F));
+            transform.position = (transform.position + new Vector3(0,0, 0.018F) );
 
         if (Input.GetKey(KeyCode.J))
-            transform.position = (transform.position + new Vector3(0,0,-0.018F));
+            transform.position = (transform.position + new Vector3(0,0,-0.018F) );
 
-        if (Input.GetKey(KeyCode.U)) { mySword.SetActive(false); }
+        if (Input.GetKey(KeyCode.Alpha7)) { mySword.SetActive(true); myGun.SetActive(false); myCan.SetActive(false); }
+        
+        if (Input.GetKey(KeyCode.Alpha8)) { mySword.SetActive(false); myGun.SetActive(true); myCan.SetActive(false); }
+        
+        if (Input.GetKey(KeyCode.Alpha9)) { mySword.SetActive(false); myGun.SetActive(false); myCan.SetActive(true); }
 
-        if (Input.GetKey(KeyCode.H)) { mySword.SetActive(true); }
-
-
-    }
+        if (Input.GetKey(KeyCode.U)) { mySword.SetActive(false); myGun.SetActive(false); myCan.SetActive(false); }
+        
+}
 
     public static void getCards()
     {
@@ -68,7 +84,7 @@ public class RPlayer : MonoBehaviour
 
     public static void addCoin()
     {
-        coins++;
+        coins+=4;
     }
 
     public static void loseCoin()

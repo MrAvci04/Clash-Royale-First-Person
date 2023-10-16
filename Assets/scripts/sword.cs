@@ -55,4 +55,14 @@ public class sword : MonoBehaviour
         }
 
     }
+    private void OnTriggerEnter(Collider thing)
+    {
+         if (this.gameObject.tag == "red" && thing.gameObject.name == "BPlayer")
+             BPlayer.damage(thing.gameObject,5);
+         if (this.gameObject.tag == "blue" && thing.gameObject.name == "RPlayer")
+             RPlayer.damage(thing.gameObject,5); 
+   
+        //   Debug.Log(this.gameObject.tag);
+
+    }
 }

@@ -58,9 +58,17 @@ public class collisionScript : MonoBehaviour
             }
 
             if (thing.collider.gameObject.name == "BPlayer")
+            {
+              //  CollectCards.Printt('B');
                 CollectCards.Printt('B');
+              //  CollectCards.Printt('B');
+            }
             else if (thing.collider.gameObject.name == "RPlayer")
-                CollectCards.Printt('R');
+            {
+                CollectCards.Printt('R'); 
+             //   CollectCards.Printt('R'); 
+             //   CollectCards.Printt('R'); 
+            }
 
         }
     }
