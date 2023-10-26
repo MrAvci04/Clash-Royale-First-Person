@@ -210,8 +210,9 @@ Week 14: 8.5 hours
 ________________________________________________________________________________________________
 
 Next Missions :
-	- adding health feature for the casstle , and it increases with the time (like real clash royal) .
 
+	- adding health feature for the casstle , and it increases with the time (like real clash royal) .
 	- choose cards and switch between them.
 	- search for more ideas.
-	- sword : animate instead of rotate
+	- sword : animate instead of rotate.
+	- switch the player style acoording to the card.
