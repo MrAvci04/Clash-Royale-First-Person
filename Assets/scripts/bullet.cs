@@ -32,8 +32,16 @@ public class bullet : MonoBehaviour
            // Instantiate(bom,thing.transform.position + new Vector3(-2,2,0),Quaternion.identity);
             Instantiate(bom,this.transform.position + new Vector3(2,0,0),Quaternion.identity);
         }
-      //  Instantiate(bom, thing.transform.position + new Vector3(0, -2, 0), Quaternion.identity);
-        Destroy(this.gameObject);
+        //  Instantiate(bom, thing.transform.position + new Vector3(0, -2, 0), Quaternion.identity);
+        
+        else
+            Instantiate(bom, this.transform.position, Quaternion.identity);
+
+        if (this.gameObject.tag == "blue" && thing.gameObject.tag == "CastRed" )
+            RPlayer.damCast();
+        if (this.gameObject.tag == "red" && thing.gameObject.tag == "CastBlue")
+            BPlayer.damCast();
+                Destroy(this.gameObject);
  
         
     }

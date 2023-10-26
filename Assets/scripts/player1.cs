@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BPlayer : MonoBehaviour
 {
@@ -15,12 +16,15 @@ public class BPlayer : MonoBehaviour
     static List<string> myCards = new List<string>();
 
     public static int health = 100;
+    public static int Casthealth = 100;
+
     static int coins = 0;
 
     public GameObject cam;
     public GameObject mySword;
     public GameObject myGun;
     public GameObject myCan;
+    public GameObject myFence;
     // Update is called once per frame
     public static int getCoin()
     {
@@ -33,6 +37,22 @@ public class BPlayer : MonoBehaviour
             return false;
         coins -= am;
         return true;
+    }
+    public static void damCast()
+    {
+        Casthealth -= 5;
+        if (Casthealth <= 0)
+        {
+            GameObject[] chars = GameObject.FindGameObjectsWithTag("blue");
+
+            foreach (GameObject item in chars)
+            {
+                Destroy(item);
+            }
+
+            Destroy(GameObject.FindGameObjectWithTag("CastBlue"));
+        }
+
     }
     void Update()
     {
@@ -59,6 +79,15 @@ public class BPlayer : MonoBehaviour
         if (Input.GetKey(KeyCode.Alpha2)) { mySword.SetActive(false); myGun.SetActive(true); myCan.SetActive(false); }
         
         if (Input.GetKey(KeyCode.Alpha3)) { mySword.SetActive(false); myGun.SetActive(false); myCan.SetActive(true); }
+       
+        if (Input.GetKey(KeyCode.Alpha4)) 
+        {
+            if (PayCoin(5) && myFence.activeSelf == false)
+            {
+                myFence.SetActive(true);
+                
+            }
+        }
     }
 
     public static void getCards()
@@ -74,6 +103,18 @@ public class BPlayer : MonoBehaviour
     public static void damage(GameObject me,int amount)
     {
         health -= amount;
+
+        GameObject foundObject = GameObject.Find("BPlayer");
+
+        if (foundObject != null)
+        {
+
+            Transform objTransform = foundObject.transform;
+
+            objTransform.Find("Canvas").GetChild(1).GetComponent<Image>().fillAmount = health / 100f;
+
+        }
+
         if (health <= 0)
             Destroy(me.gameObject);
         if (health > 100)

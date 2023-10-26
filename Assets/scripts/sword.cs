@@ -58,10 +58,14 @@ public class sword : MonoBehaviour
     private void OnTriggerEnter(Collider thing)
     {
          if (this.gameObject.tag == "red" && thing.gameObject.name == "BPlayer")
-             BPlayer.damage(thing.gameObject,5);
+             BPlayer.damage(thing.gameObject,2);
          if (this.gameObject.tag == "blue" && thing.gameObject.name == "RPlayer")
-             RPlayer.damage(thing.gameObject,5); 
-   
+             RPlayer.damage(thing.gameObject,2);
+        if (this.gameObject.tag == "blue" && thing.gameObject.tag == "CastRed")
+            RPlayer.damCast();
+        if (this.gameObject.tag == "red" && thing.gameObject.tag == "CastBlue")
+            BPlayer.damCast();
+
         //   Debug.Log(this.gameObject.tag);
 
     }

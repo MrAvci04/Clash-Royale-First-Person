@@ -14,6 +14,10 @@ public class scoringScript : MonoBehaviour
             score.text = "testB";
         if (this.name == "sR")
             score.text = "testR";
+        if (this.name == "CB")
+            score.text = "testB";
+        if (this.name == "CR")
+            score.text = "testR";
     }
 
     // Update is called once per frame
@@ -21,11 +25,23 @@ public class scoringScript : MonoBehaviour
     {
         if (this.name == "sB")
         {
-            score.text = "Health : " + BPlayer.health.ToString() + " \n Coins : " + BPlayer.getCoin().ToString();
+            score.text = "PHealth : " + BPlayer.health.ToString() + "\nCoins : " + BPlayer.getCoin().ToString();
         }
+        
         if (this.name == "sR")
         {
-            score.text = "Player Health : " + RPlayer.health.ToString() + " \n Coins :" + RPlayer.getCoin().ToString();
+            score.text = "PHealth : " + RPlayer.health.ToString() + "\nCoins :" + RPlayer.getCoin().ToString();
         }
+        
+        if (this.name == "CB")
+        {
+            score.text = "CHealth : " + BPlayer.Casthealth.ToString();
+        }
+        
+        if (this.name == "CR")
+        {
+            score.text = "CHealth : " + RPlayer.Casthealth.ToString();
+        }
+
     }
 }

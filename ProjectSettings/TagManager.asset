@@ -6,6 +6,9 @@ TagManager:
   tags:
   - red
   - blue
+  - white
+  - CastBlue
+  - CastRed
   layers:
   - Default
   - TransparentFX
