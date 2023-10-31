@@ -22,7 +22,9 @@ public class BPlayer : MonoBehaviour
 
     public GameObject cam;
     public GameObject mySword;
+    public GameObject mySK;
     public GameObject myGun;
+    public GameObject myWiz;
     public GameObject myCan;
     public GameObject myFence;
     // Update is called once per frame
@@ -41,6 +43,18 @@ public class BPlayer : MonoBehaviour
     public static void damCast()
     {
         Casthealth -= 5;
+
+        GameObject foundObject = GameObject.Find("BCAST");
+
+        if (foundObject != null)
+        {
+
+            Transform objTransform = foundObject.transform;
+
+            objTransform.Find("Canvas").GetChild(1).GetComponent<Image>().fillAmount = Casthealth / 100f;
+
+        }
+
         if (Casthealth <= 0)
         {
             GameObject[] chars = GameObject.FindGameObjectsWithTag("blue");
@@ -72,17 +86,17 @@ public class BPlayer : MonoBehaviour
      //   if (Input.GetKey(KeyCode.Space))
        //     cam.SetActive(false);
 
-        if (Input.GetKey(KeyCode.Q)) { mySword.SetActive(false); myGun.SetActive(false); myCan.SetActive(false); }
+        if (Input.GetKey(KeyCode.Q)) { mySword.SetActive(false); mySK.SetActive(false); myGun.SetActive(false); myWiz.SetActive(false); myCan.SetActive(false); }
 
-        if (Input.GetKey(KeyCode.Alpha1)) { mySword.SetActive(true); myGun.SetActive(false); myCan.SetActive(false); }
+        if (Input.GetKey(KeyCode.Alpha1)) { mySword.SetActive(true); mySK.SetActive(true); myGun.SetActive(false); myWiz.SetActive(false); myCan.SetActive(false); }
        
-        if (Input.GetKey(KeyCode.Alpha2)) { mySword.SetActive(false); myGun.SetActive(true); myCan.SetActive(false); }
+        if (Input.GetKey(KeyCode.Alpha2)) { mySword.SetActive(false); mySK.SetActive(false); myGun.SetActive(true); myWiz.SetActive(true); myCan.SetActive(false); }
         
-        if (Input.GetKey(KeyCode.Alpha3)) { mySword.SetActive(false); myGun.SetActive(false); myCan.SetActive(true); }
+        if (Input.GetKey(KeyCode.Alpha3)) { mySword.SetActive(false); mySK.SetActive(false); myGun.SetActive(false); myWiz.SetActive(false); myCan.SetActive(true); }
        
         if (Input.GetKey(KeyCode.Alpha4)) 
         {
-            if (PayCoin(5) && myFence.activeSelf == false)
+            if (PayCoin(3) && myFence.activeSelf == false)
             {
                 myFence.SetActive(true);
                 

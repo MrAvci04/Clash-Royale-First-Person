@@ -9,6 +9,11 @@ public class shoot : MonoBehaviour
     public Transform point;
     public GameObject shot;
 
+    public AudioSource mySound;
+    public AudioSource noSound;
+
+    public int pay;
+
     void Start()
     {
         
@@ -17,14 +22,33 @@ public class shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.gameObject.tag == "red" && Input.GetKeyUp(KeyCode.O) && RPlayer.PayCoin(1) || this.gameObject.tag == "blue" && Input.GetKeyUp(KeyCode.E) && BPlayer.PayCoin(1)) 
+        if (this.gameObject.tag == "red" && Input.GetKeyUp(KeyCode.O))
         {
-            var st = Instantiate(shot, point.position, Quaternion.LookRotation(new Vector3(45, 180, 0)));
-            if (this.gameObject.tag == "red")
+            if(!RPlayer.PayCoin(pay))
+                noSound.Play();
+            else
+            {
+                var st = Instantiate(shot, point.position, Quaternion.LookRotation(new Vector3(45, 180, 0)));
                 st.tag = "red";
-            if (this.gameObject.tag == "blue")
+                st.GetComponent<Rigidbody>().velocity = point.forward * 50;
+
+                mySound.Play();
+            }
+        }
+        
+        
+        if (this.gameObject.tag == "blue" && Input.GetKeyUp(KeyCode.E))
+        {
+            if(!BPlayer.PayCoin(pay))
+                noSound.Play();
+            else
+            {
+                var st = Instantiate(shot, point.position, Quaternion.LookRotation(new Vector3(45, 180, 0)));
                 st.tag = "blue";
-            st.GetComponent<Rigidbody>().velocity = point.forward*50;
+                st.GetComponent<Rigidbody>().velocity = point.forward * 50;
+
+                mySound.Play();
+            }
         }
     }
     

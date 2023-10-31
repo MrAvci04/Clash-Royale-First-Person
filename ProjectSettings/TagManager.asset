@@ -13,12 +13,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - FPR
   - Water
   - UI
-  - 
-  - 
-  - 
+  - FPB
+  - BPlayer
+  - RPlayer
   - 
   - 
   - 
