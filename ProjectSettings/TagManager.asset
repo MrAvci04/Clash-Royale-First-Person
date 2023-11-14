@@ -9,6 +9,7 @@ TagManager:
   - white
   - CastBlue
   - CastRed
+  - CasRes
   layers:
   - Default
   - TransparentFX

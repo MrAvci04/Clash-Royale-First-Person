@@ -19,12 +19,12 @@ public class backStep : MonoBehaviour
     {
         if (thing.collider.name == "RPlayer")
         {
-            thing.gameObject.transform.position += new Vector3(0.1F, 0, 0);
+            thing.gameObject.transform.position += new Vector3(1F, 0, 0);
             RPlayer.damage(thing.gameObject ,1);
         }
         if (thing.collider.name == "BPlayer")
         {
-            thing.gameObject.transform.position += new Vector3(-0.1F, 0, 0);
+            thing.gameObject.transform.position += new Vector3(-1F, 0, 0);
             BPlayer.damage(thing.gameObject ,1);
         }
     }

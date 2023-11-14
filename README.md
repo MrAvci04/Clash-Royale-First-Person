@@ -253,24 +253,50 @@ Week 15: 8 hours
 
 ________________________________________________________________________________________________
 
-Week 16: 2 hours.
+Week 16: 7 hours.
 
 	-1 hour : collecting audios.
 
 	-1 hour : change and optimize 'shoot.cs' script , and adding some sounds : 
-		{for cannon when there is enough coins , for cannon where there is not enough coins ,
+		{for cannon when there is enough coins , for cannon where there is no enough coins ,
 		 for wizard when there is enough coins , for wizard when there is no enough coins} , wizards cost != cannon cost.
+
+	-30 minutes : adding audios for BPlayer and fixing 'pay' bug.
+
+	-30 minutes : change speed according to the card you have choosed.
+
+	-1 hour : fitting canvas for FullHD resolution (its working for 4K UHD and QHD , but the origin is FullHD).
+
+	-3 hours : tried to make PlatAgain with Canvas , but failed because the relevant functions to acticated the canvas are static.
 	
+________________________________________________________________________________________________
+
+Week 17: 5 hours.
+
+	-1 hour : making StartScene and TryAgainScene , so the method I used to fix the problem of week 16 is to implement it by scene instead of canvas.
+	
+	-30 minutes : Enhancing Canvas UI and fixing this problem : "Scene couldn't be loaded because it has not been added to the build settings Or AssetBundles".
+	
+	-1.5 hour : Adding "Setting" Button on Canvas , ONClick Open Another Canvas , and Increasing speed by Scrolling bar , and there is 'Close' button .
+
+	-1 hour : fixing Scene Management bugs , searching and importing sword audio assets , activate sword audio , resetting the relevant variables when die.	
+	
+	-30 minutes : fixing speed bugs after adding the corllbar option (because it was changing automatically by switching characters).
+
+	-30 minutes : Diying On Fall , and changing Start Screen + TryAgainScreen design.
 
 ________________________________________________________________________________________________
 
-Next Missions :
+Week 18: 3 hours
 
-	- adding health feature for the casstle , and it increases with the time (like real clash royal) .
-	- search for more ideas.
+	-2 hour : showing the winner in TryAgainScene + fixing bugs.
+
+	-1 hour : testing the game , all scripts and structures.
+
+________________________________________________________________________________________________
+
+Ideas Bank :
 	- sword animation instead of rotation.
-	- change speed according to the card you have choosed.
 	- one card in the same moment.
-	- adding audio.
-	-setup real clash royale environment from Sketchfab
-	-adding more real characters like sparky , pekka , mini pekka, giant skeleton , towers , ballon
+	-setup real clash royale environment from Sketchfab (I think that I can't Upload it to github because its large).
+	- spawn again by canvas.

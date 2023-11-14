@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class RPlayer : MonoBehaviour
@@ -11,7 +12,10 @@ public class RPlayer : MonoBehaviour
    // float speed = 0.00000000000000000004F;
     void Start()
     {
-        
+        speed = 5;
+        health = 100;
+        Casthealth = 100;
+        coins = 0;
     }
 
 
@@ -29,8 +33,9 @@ public class RPlayer : MonoBehaviour
     public GameObject myCan;
     public GameObject myFence;
 
+    public Scrollbar myScroll;
+    private float speed;
 
-    
 
     // Update is called once per frame
     public static int getCoin()
@@ -70,49 +75,60 @@ public class RPlayer : MonoBehaviour
             }
 
             Destroy(GameObject.FindGameObjectWithTag("CastRed"));
+
+            SceneManager.LoadScene("TryAgainScene");
         }
 
     }
     void Update()
     {
+        if (transform.position.y < -225)
+            damage(this.gameObject,100);
         if (health <= 0)
             Destroy(this.gameObject);
 
+        speed = myScroll.value * 10;
+
         if (Input.GetKey(KeyCode.K))
-            transform.position =  (transform.position + new Vector3(0.018F, 0, 0) );
+            transform.position =  (transform.position + new Vector3(0.018F, 0, 0) * speed * 3);
 
         if (Input.GetKey(KeyCode.I))
-            transform.position = (transform.position + new Vector3(-0.018F, 0, 0) );
+            transform.position = (transform.position + new Vector3(-0.018F, 0, 0) * speed * 3);
 
         if (Input.GetKey(KeyCode.L))
-            transform.position = (transform.position + new Vector3(0,0, 0.018F) );
+            transform.position = (transform.position + new Vector3(0,0, 0.018F) * speed * 3);
 
         if (Input.GetKey(KeyCode.J))
-            transform.position = (transform.position + new Vector3(0,0,-0.018F) );
+            transform.position = (transform.position + new Vector3(0,0,-0.018F) * speed * 3);
 
         if (Input.GetKey(KeyCode.Alpha7)) 
         { 
             mySword.SetActive(true); mySK.SetActive(true);
             myGun.SetActive(false); myWiz.SetActive(false); 
             myCan.SetActive(false);
+           // speed = 8;
         }
         
         if (Input.GetKey(KeyCode.Alpha8))
         { mySword.SetActive(false); mySK.SetActive(false);
             myGun.SetActive(true); myWiz.SetActive(true); 
-            myCan.SetActive(false); 
+            myCan.SetActive(false);
+           // speed = 7;
         }
         
         if (Input.GetKey(KeyCode.Alpha9)) 
         { mySword.SetActive(false); mySK.SetActive(false);
             myGun.SetActive(false); myWiz.SetActive(false);
-            myCan.SetActive(true); 
+            myCan.SetActive(true);
+           // speed = 5;
         }
 
         if (Input.GetKey(KeyCode.U))
         { mySword.SetActive(false); mySK.SetActive(false); 
             myGun.SetActive(false); myWiz.SetActive(false);
-            myCan.SetActive(false); }
+            myCan.SetActive(false);
+           // speed = 4;
+        }
 
         if (Input.GetKey(KeyCode.Alpha0))
         {
@@ -154,8 +170,11 @@ public class RPlayer : MonoBehaviour
         }
 
         if (health <= 0)
+        {
             Destroy(me.gameObject);
-    }
+            SceneManager.LoadScene("TryAgainScene");
+        }
+        }
 
     public static void addCoin()
     {

@@ -5,6 +5,9 @@ using UnityEngine;
 public class sword : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public AudioSource mySound;
+
     void Start()
     {
         
@@ -17,6 +20,7 @@ public class sword : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.O))
             {
+                mySound.Play();
                 Debug.Log("you are : +" + this.gameObject.tag + " player");
                 if (flag)
                 {
@@ -37,6 +41,7 @@ public class sword : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                mySound.Play();
                 Debug.Log("you are : +" + this.gameObject.tag + " player");
                 if (flag)
                 {
